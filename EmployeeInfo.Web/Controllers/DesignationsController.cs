@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EmployeeInfo.Web.Data;
 using EmployeeInfo.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EmployeeInfo.Web.Controllers
 {
+ [Authorize(Roles ="Administrator")]
     public class DesignationsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -20,12 +22,14 @@ namespace EmployeeInfo.Web.Controllers
         }
 
         // GET: Designations
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Designations.ToListAsync());
         }
 
         // GET: Designations/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -44,6 +48,7 @@ namespace EmployeeInfo.Web.Controllers
         }
 
         // GET: Designations/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -53,6 +58,7 @@ namespace EmployeeInfo.Web.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("DesignationId,DesignationName,DesignationDescription")] Designation designation)
         {
@@ -66,6 +72,7 @@ namespace EmployeeInfo.Web.Controllers
         }
 
         // GET: Designations/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -85,6 +92,7 @@ namespace EmployeeInfo.Web.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("DesignationId,DesignationName,DesignationDescription")] Designation designation)
         {
@@ -117,6 +125,7 @@ namespace EmployeeInfo.Web.Controllers
         }
 
         // GET: Designations/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -136,6 +145,7 @@ namespace EmployeeInfo.Web.Controllers
 
         // POST: Designations/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {

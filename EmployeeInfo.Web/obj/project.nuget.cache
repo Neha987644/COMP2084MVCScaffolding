@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "t5t8Go6Yi9BWO+3V2kSQ8jod/Ctlq6HaZlpr1MoZDvoUIRCbcDBDYbs4ud1a70hUdzD+U0e4A+Tr6VcTlhaD8g==",
+  "dgSpecHash": "4qEEiSdNOhV3B7I5vZj6Kf7g34GEKkTZm9zMtocFQCFhNAaHABznTo5G1aQDB9xfEJ0+eRB3kaCVTSedTf+tvQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\brark\\Desktop\\EmployeeInfo.Web (2)\\EmployeeInfo.Web\\EmployeeInfo.Web\\EmployeeInfo.Web.csproj",
+  "projectFilePath": "C:\\Users\\brark\\Desktop\\Assignemnt\\COMP2084MVCScaffolding\\EmployeeInfo.Web\\EmployeeInfo.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\brark\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Users\\brark\\.nuget\\packages\\microsoft.aspnetcore\\2.1.1\\microsoft.aspnetcore.2.1.1.nupkg.sha512",

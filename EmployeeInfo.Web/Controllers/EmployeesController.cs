@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EmployeeInfo.Web.Data;
 using EmployeeInfo.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EmployeeInfo.Web.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class EmployeesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -20,12 +22,14 @@ namespace EmployeeInfo.Web.Controllers
         }
 
         // GET: Employees
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Employees.ToListAsync());
         }
 
         // GET: Employees/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,6 +48,7 @@ namespace EmployeeInfo.Web.Controllers
         }
 
         // GET: Employees/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -54,6 +59,7 @@ namespace EmployeeInfo.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("EmployeeId,EmployeeName,DesignationId,EmployeeDoB,EmployeeEmail")] Employee employee)
         {
             if (ModelState.IsValid)
@@ -66,6 +72,7 @@ namespace EmployeeInfo.Web.Controllers
         }
 
         // GET: Employees/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -85,6 +92,7 @@ namespace EmployeeInfo.Web.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("EmployeeId,EmployeeName,DesignationId,EmployeeDoB,EmployeeEmail")] Employee employee)
         {
@@ -117,6 +125,7 @@ namespace EmployeeInfo.Web.Controllers
         }
 
         // GET: Employees/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -135,6 +144,8 @@ namespace EmployeeInfo.Web.Controllers
         }
 
         // POST: Employees/Delete/5
+
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

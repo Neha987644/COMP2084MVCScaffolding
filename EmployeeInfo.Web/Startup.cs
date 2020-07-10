@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using EmployeeInfo.Web.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using EmployeeInfo.Web.Models;
 
 namespace EmployeeInfo.Web
 {
@@ -37,9 +38,14 @@ namespace EmployeeInfo.Web
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
-
+            // services.AddDefaultIdentity<IdentityUser>()
+            //   .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<ApplicationUser, ApplicationRole>()
+               .AddDefaultUI()
+               .AddRoles<ApplicationRole>()
+               .AddRoleManager<RoleManager<ApplicationRole>>()
+               .AddEntityFrameworkStores<ApplicationDbContext>()
+               .AddDefaultTokenProviders();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

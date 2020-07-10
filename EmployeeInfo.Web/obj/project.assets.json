@@ -12537,11 +12537,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\brark\\Desktop\\EmployeeInfo.Web (2)\\EmployeeInfo.Web\\EmployeeInfo.Web\\EmployeeInfo.Web.csproj",
+      "projectUniqueName": "C:\\Users\\brark\\Desktop\\Assignemnt\\COMP2084MVCScaffolding\\EmployeeInfo.Web\\EmployeeInfo.Web.csproj",
       "projectName": "EmployeeInfo.Web",
-      "projectPath": "C:\\Users\\brark\\Desktop\\EmployeeInfo.Web (2)\\EmployeeInfo.Web\\EmployeeInfo.Web\\EmployeeInfo.Web.csproj",
+      "projectPath": "C:\\Users\\brark\\Desktop\\Assignemnt\\COMP2084MVCScaffolding\\EmployeeInfo.Web\\EmployeeInfo.Web.csproj",
       "packagesPath": "C:\\Users\\brark\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\brark\\Desktop\\EmployeeInfo.Web (2)\\EmployeeInfo.Web\\EmployeeInfo.Web\\obj\\",
+      "outputPath": "C:\\Users\\brark\\Desktop\\Assignemnt\\COMP2084MVCScaffolding\\EmployeeInfo.Web\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\brark\\AppData\\Roaming\\NuGet\\NuGet.Config",
